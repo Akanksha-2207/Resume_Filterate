@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
+from resume_search import views
 
 # Manually added (Username:Admin Password:Admin)  Admin page Login Details 
 admin.site.site_header = "CV Search Engine Admin"
@@ -23,5 +24,6 @@ admin.site.index_title = "Welcome to CV Search Engine"
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path('',include('resume_search.urls'))
+    path('',include('resume_search.urls')),
+    path('upload_cv',views.upload_cv,name='upload_cv')
 ]

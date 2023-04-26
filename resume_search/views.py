@@ -1,14 +1,18 @@
 from django.shortcuts import render,HttpResponse
+from django.core.files.storage import FileSystemStorage
+
 
 # Create your views here.
 def index(request):
-    context={
-      "variable1":"Harry is great",
-      "variable2":"Rohan is great"
+    context={}
+    if request.method == 'POST':
+        uploaded_file=request.FILES['resumes']
+        fs=FileSystemStorage()
+        fs.save(name=uploaded_file.name,content=uploaded_file)
+    return render(request,'index.html')
 
-    }
-    #return HttpResponse("This is Home Page")
-    return render(request,'index.html',context)
+def upload_cv(request):
+    return render(request, "Choose_File.html")
 
 def about(request):
     return HttpResponse("This is Information Page")

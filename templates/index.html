@@ -1,17 +1,108 @@
 {% extends 'base.html' %}
 
-{% block title %}
-Home
-{% endblock title %}
-
+{% block title %} Home {% endblock title %}
 
 
 {% block body %}
+<body>
+  <!--This is a Image On Interface 1 Implemented--> 
+  <div class="container-fluid my-2">
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="/static/2.jpg" class="d-block w-100" alt="...">
+          
+            
+         <!--This is a Upload File Method Implemented--> 
+         <form method="post" enctype="multipart/form-data">
+           {% csrf_token %}
+            <div class="container">  
+              <div>
+                <input type="file" accept=".doc,.pdf,.docx"  name="resumes" value="Choose File"></input>
+                <button type="submit" class="btn">Upload</button>
+              </div>
+            
+            </div>
+           
+            <!-- Search Keyword Tab on Interface 1-->
+            <div class="container1">
+            <form action="#">
+              <label class="search" for="name">Search Keywords</label>
+              <input class="requirements" type="text" id="name" placeholder= "Enter your requirements">
+              <button type="submit" class="btn">Submit</button>
+            </form>
+            </div>
 
-<div class="input-group">
-  <span class="input-group-text">Search Keywords</span>
-  <textarea class="form-control" aria-label="Search keywords"></textarea>
-</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>        
+          
+  
 
-<div><button class="btn btn-outline-secondary" type="button" id="inputGroupFileAddon04">Button</button></div>
+</body>
 {% endblock body %}
+
+<!-- Styling Part-->
+{% block style  %}
+<style>
+  body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f4f4;
+    
+  }
+ 
+  .container{ 
+    border-color: #02b3b3;
+    color: #f4f4f4;
+    position: absolute;
+    top: 30%;
+    left: 43%;
+    -ms-transform: translate(-50%, -50%);
+  }
+
+  .container h2{
+    font-size: 2.5rem;
+  }
+
+  .container input{
+    background-color: #02b3b3;
+    border-color: #2c3a47;
+    color: #2c3a47;
+    font-size: 2rem;
+    padding: 0.3rem 1rem;
+
+  }
+
+  .container1{ 
+    border-color: #02b3b3;
+    color: #02b3b3;
+    position: absolute;
+    top: 48%;
+    left: 21.5%;
+    -ms-transform: translate(-50%, -50%);
+  }
+
+  .container1 .search {
+    padding: 0.2rem 1rem;
+    font-size: 2rem;
+    background-color: #02b3b3;
+    color: #2c3a47;
+    }
+
+  .container1 .requirements{
+    padding: 0.2rem;
+    font-size: 2rem;
+    background-color: #fff;
+  }
+  
+  .btn{
+    background-color: #02b3b3;
+    font-size: 2rem;
+    color: #2c3a47;
+    padding: 0.3rem 1.2rem;
+  }
+
+</style>
+{% endblock style  %}
