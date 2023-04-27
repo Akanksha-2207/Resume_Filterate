@@ -1,16 +1,81 @@
 {% extends 'base.html' %}
 
-{% block title %}
-Home
-{% endblock title %}
+{% block title %} Home {% endblock title %}
+
+
+{% block body %}
+<body>
+  <!--This is a Image On Interface 1 Implemented--> 
+  <div class="container-fluid my-2">
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="/static/2.jpg" class="d-block w-100" alt="...">
+          
+            
+         <!--This is a Upload File Method Implemented--> 
+         <form method="post" enctype="multipart/form-data">
+           {% csrf_token %}
+            <div class="container">  
+              <div>
+                <input type="file" accept=".doc,.pdf,.docx"  name="resumes" value="Choose File"></input>
+                <button type="submit" class="btn">Upload</button>
+              </div>
+            
+            </div>
+           
+            <!-- Search Keyword Tab on Interface 1-->
+            <div class="container1">
+            <form action="#">
+              <label class="search" for="name">Search Keywords</label>
+              <input class="requirements" type="text" id="name" placeholder= "Enter your requirements">
+              <button type="submit" class="btn">Submit</button>
+            </form>
+            </div>
+             
+
+            <!--  Table to Display the content -->
+            <div> 
+              <table>
+                <tr>
+                <th>Uploaded Date</th>
+                <th>Experience</th>
+                <th>View Resume</th>
+                </tr>    
+                </table>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>        
+          
+  
+
+</body>
+{% endblock body %}
+
+<!-- Styling Part-->
 {% block style  %}
 <style>
+
+ 
+  table{
+      border:1px solid black;
+    }
+
+    th,td{
+      border:1px solid black;
+    }
+ 
   body {
     font-family: 'Poppins', sans-serif;
     background-color: #f4f4f4;
     
   }
-
+ 
   .container{ 
     border-color: #02b3b3;
     color: #f4f4f4;
@@ -64,36 +129,3 @@ Home
 
 </style>
 {% endblock style  %}
-{% block body %}
-<body>
-
-  <div class="container-fluid my-2">
-    <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img src="/static/2.jpg" class="d-block w-100" alt="...">
-          
-            <div class="container">
-              <div>
-                <input type="file" accept=".doc,.pdf,.docx" multiple  value="Choose File"></input>
-                <button type="submit" class="btn">Upload</button>
-              </div>
-            </div>
-
-            <div class="container1">
-            <form action="#">
-              <label class="search" for="name">Search Keywords</label>
-              <input class="requirements" type="text" id="name" placeholder= "Enter your requirements">
-              <button type="submit" class="btn">Submit</button>
-            </form>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>        
-          
-  
-
-</body>
-{% endblock body %}
